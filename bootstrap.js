@@ -639,7 +639,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "GetYourWeather.view.Main": []
+  "GetYourWeather.controller.WeatherController": [],
+  "GetYourWeather.view.CurrentLocation": [],
+  "GetYourWeather.view.Main": [],
+  "GetYourWeather.view.SettingsView": [],
+  "GetYourWeather.view.WeatherView": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1359,7 +1363,17 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "GetYourWeather.controller.WeatherController": [],
+  "GetYourWeather.view.CurrentLocation": [
+    "widget.currentLocation"
+  ],
   "GetYourWeather.view.Main": [
     "widget.main"
+  ],
+  "GetYourWeather.view.SettingsView": [
+    "widget.settingsView"
+  ],
+  "GetYourWeather.view.WeatherView": [
+    "widget.weatherView"
   ]
 });
