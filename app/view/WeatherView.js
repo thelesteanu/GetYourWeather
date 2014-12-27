@@ -3,6 +3,7 @@ Ext.define('GetYourWeather.view.WeatherView', {
     alias: 'widget.weatherView',
     config: {
         title: 'Weather',
+        style:'background: url(/resources/loading/snow2.jpg) no-repeat center center fixed; background-size: cover;',
         iconCls: 'action',
         itemId: 'weatherView',
         items: [
@@ -13,13 +14,9 @@ Ext.define('GetYourWeather.view.WeatherView', {
             },
             {
                 xtype: 'panel',
+                height: '60%',
                 itemId: 'currentDay',
                 tpl: Ext.XTemplate.from('template-today-weather', {})
-            },
-            {
-                xtype: 'panel',
-                itemId: 'astrologyPanel',
-                tpl: Ext.XTemplate.from('template-astronomy', {})
             },
             {
                 xtype: 'dataview',
@@ -31,7 +28,8 @@ Ext.define('GetYourWeather.view.WeatherView', {
                 docked: 'bottom',
                 itemId: 'daysPanel',
                 id: 'JSONP',
-                height: '20%',
+                height: '30%',
+                scrollable:false,
                 itemTpl: Ext.XTemplate.from('template-days-weather', {})
             }
         ]

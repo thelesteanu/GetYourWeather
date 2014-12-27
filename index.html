@@ -61,46 +61,48 @@
 
 
 <script type="text/template" id="template-today-weather">
-    <div>
-        <div style="display: inline-block">
-            <img src="{[values.weatherIconUrl[0].value]}" heigh="100px">
+    <div style="margin: 10px;height: 60%">
+        <div style="display: inline-block;height:300px;width: 48%;max-width: 400px;">
+            <img src="{[values.current_condition[0].weatherIconUrl[0].value]}" width="100%">
         </div>
-        <div style="display: inline-block;color:red;font-size:35px">
-            {[values.temp_C]}
+        <div style="display: inline-block;vertical-align: top;width:50%;height: inherit">
+            <div style="color:red;font-size:60px;text-align: right;width: 100%">
+                {[values.current_condition[0].temp_C]}&#176;
+            </div>
+            <div style="font-size:35px;text-align: right;width: 100%;">
+                Feels Like
+                {[values.current_condition[0].FeelsLikeC]}&#176;
+            </div>
         </div>
-        <div style="display: inline-block;font-size:35px">
-            Feels Like
-            {[values.FeelsLikeC]}
+    </div>
+    <div style="height: 40%;font-size: 30px;padding: 20px">
+        <div style="display: inline-block;width: 48%;">
+            <div style="">
+                Humidity  <br> {[values.current_condition[0].humidity]}%
+            </div>
+            <div style="">
+                Wind <br> {[values.current_condition[0].windspeedKmph]} KM/h
+            </div>
         </div>
-        <div style="display: inline-block;font-size:35px">
-            Humidity
-            {[values.humidity]}%
-        </div>
-        <div style="display: inline-block;font-size:35px">
-            Wind
-            {[values.windspeedKmph]} KM
+        <div style="display: inline-block;width: 48%;text-align: right;">
+            <div>
+                Sunrise <br> {[values.weather[0].astronomy[0].sunrise]}
+            </div>
+            <div>
+                Sunset <br> {[values.weather[0].astronomy[0].sunset]}
+            </div>
         </div>
     </div>
 </script>
 
-<script type="text/template" id="template-astronomy">
-    <div>
-        <div style="text-align: center">
-            Sunrise {[values.sunrise]}
-        </div>
-        <div>
-            Sunset {[values.sunset]}
-        </div>
-    </div>
-</script>
 
 <script type="text/template" id="template-days-weather">
-    <div>
-        <div style="text-align: center">
-            {date}
+    <div style="width: 19%;">
+        <div style="text-align: center;font-size: 14px;font-weight: bold;color:white">
+            {dayName}
         </div>
         <div>
-            <img src="{[values.hourly[0].weatherIconUrl[0].value]}" heigh="100px">
+            <img src="{[values.hourly[0].weatherIconUrl[0].value]}" width="100px">
         </div>
     </div>
 </script>

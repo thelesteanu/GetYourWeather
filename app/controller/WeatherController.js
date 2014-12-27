@@ -43,8 +43,38 @@ Ext.define('GetYourWeather.controller.WeatherController', {
                 var weather = response.data.weather;
                 if (weather) {
                     var weatherView = self.getWeatherView();
-                    weatherView.down('#currentDay').setData(response.data.current_condition[0]);
-                    weatherView.down('#astrologyPanel').setData(weather[0].astronomy[0]);
+                    weatherView.down('#currentDay').setData(response.data);
+                    weather.forEach(function (entry) {
+                        var d = new Date(entry.date);
+                        var n = d.getDay();
+                        var day = '';
+                        switch (n) {
+                            case 0:
+                                day = "Sunday";
+                                break;
+                            case 1:
+                                day = "Monday";
+                                break;
+                            case 2:
+                                day = "Tuesday";
+                                break;
+                            case 3:
+                                day = "Wednesday";
+                                break;
+                            case 4:
+                                day = "Thursday";
+                                break;
+                            case 5:
+                                day = "Friday";
+                                break;
+                            case 6:
+                                day = "Saturday";
+                                break;
+                        }
+                        console.log(day);
+                        entry.dayName = day;
+                    });
+
                     weatherView.down('#daysPanel').setData(weather);
                 }
                 else {
