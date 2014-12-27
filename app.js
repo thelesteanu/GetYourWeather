@@ -35,8 +35,30 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('GetYourWeather.view.Main'));
-    },
+        if (Ext.browser.is.PhoneGap && Ext.os.is('Android')) {
+            document.addEventListener("offline", this.deviceOffline, false);
 
+        }
+        if (Ext.browser.is.PhoneGap) {
+            document.addEventListener("deviceready", this.onDeviceReady, false);
+        }
+    },
+    onDeviceReady: function () {
+        window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
+            window.rootFS = fileSystem.root;
+        }, function () {
+        });
+        navigator.notification.vibrate(800);
+    },
+    deviceOffline: function () {
+        Ext.device.Notification.show({
+            title: "Connection Unavailable",
+            message: "Please connect to Internet!",
+            buttons: "Ok"
+        });
+        navigator.notification.vibrate(800);
+    },
     onUpdated: function () {
         Ext.Msg.confirm(
             "Application Update",
