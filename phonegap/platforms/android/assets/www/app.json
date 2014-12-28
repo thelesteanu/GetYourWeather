@@ -1,0 +1,1 @@
+{"id":"f943331b-7645-415a-94d0-62ebb1a390b8","js":[{"path":"phonegap.js","remote":true},{"path":"app.js","update":"delta"},{"path":"http://maps.google.com/maps/api/js?sensor\u003dtrue","remote":true}],"css":[{"path":"resources/css/app.css","update":"delta"},{"path":"resources/css/custom.css","update":"delta"}]}

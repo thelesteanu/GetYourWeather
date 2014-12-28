@@ -3,10 +3,10 @@ Ext.define('GetYourWeather.controller.WeatherController', {
     requires: [],
     config: {
         views: [
-            'WeatherView',
-            'CurrentLocation',
-            'Main',
-            'SettingsView'
+            'GetYourWeather.view.WeatherView',
+            'GetYourWeather.view.CurrentLocation',
+            'GetYourWeather.view.Main',
+            'GetYourWeather.view.SettingsView'
         ],
         refs: {
             weatherView: 'weatherView',
@@ -38,7 +38,6 @@ Ext.define('GetYourWeather.controller.WeatherController', {
                 tp: 24
             },
             callback: function (success, response) {
-                console.log(response);
                 self.getWeatherView().down('titlebar').setTitle(response.data.request[0].query);
                 var weather = response.data.weather;
                 if (weather) {
@@ -71,11 +70,10 @@ Ext.define('GetYourWeather.controller.WeatherController', {
                                 day = "Saturday";
                                 break;
                         }
-                        console.log(day);
                         entry.dayName = day;
                     });
-
                     weatherView.down('#daysPanel').setData(weather);
+                    weatherView.down('#daysPanel').getStore().load();
                 }
                 else {
                     alert('There was an error retrieving the weather.');

@@ -7,9 +7,9 @@ Ext.define('GetYourWeather.view.Main', {
         'Ext.Map'
     ],
     config: {
+        tabBarPosition: 'bottom',
         tabBar: {
             layout: {
-                docked: 'top',
                 pack: 'center'
             },
             defaults: {
@@ -18,8 +18,8 @@ Ext.define('GetYourWeather.view.Main', {
         },
         items: [
             {xtype: 'currentLocation'},
-            {xtype: 'weatherView'},
-            {xtype: 'settingsView'}
+            {xtype: 'weatherView'}/*,
+             {xtype: 'settingsView'}*/
         ],
         listeners: {
             activeitemchange: function (container, value, oldValue, eOpts) {
